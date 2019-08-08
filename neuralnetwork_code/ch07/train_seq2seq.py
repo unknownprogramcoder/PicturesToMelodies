@@ -24,8 +24,8 @@ with open('../melodies_for_decoder_input_test', 'rb') as f:
 t_train = t_train.astype(int)
 t_test = t_test.astype(int)
 # 하이퍼파라미터 설정
-batch_size = 4 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
-max_epoch = 2
+batch_size = 1 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
+max_epoch = 500
 max_grad = 5.0
 
 # 일반 혹은 엿보기(Peeky) 설정 =====================================

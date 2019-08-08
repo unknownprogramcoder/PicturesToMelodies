@@ -268,15 +268,15 @@ class Read_midi(object):
         return pianoroll
 
 if __name__ == '__main__':
-    the_number_of_file1 = 10
-    the_number_of_file2 = 2
-    time_len = 256
+    the_number_of_file1 = 1
+    the_number_of_file2 = 1
+    time_len = 128
     
     arrays1 = np.zeros((the_number_of_file1, time_len)) 
     aaa = None
     for i in range(the_number_of_file1):
         filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\m{}.mid".format(i+1)
-        aaa = Read_midi(filepath, 8).read_file()
+        aaa = Read_midi(filepath, 4).read_file()
         bbb = dict_to_matrix(aaa)
         ccc = bbb[0:time_len, 40:90] #자르기.
         #원핫벡터->인덱스로 바꾸기. (그냥 단선율로만)
@@ -297,7 +297,7 @@ if __name__ == '__main__':
     aaa = None
     for i in range(the_number_of_file2):
         filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\t{}.mid".format(i+1)
-        aaa = Read_midi(filepath, 8).read_file()
+        aaa = Read_midi(filepath, 4).read_file()
         bbb = dict_to_matrix(aaa)
         ccc = bbb[0:time_len, 40:90] #자르기.
         #원핫벡터->인덱스로 바꾸기. (그냥 단선율로만)

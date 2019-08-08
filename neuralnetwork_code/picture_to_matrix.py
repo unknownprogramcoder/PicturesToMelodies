@@ -7,8 +7,8 @@ import glob #특정 폴더의 파일 불러오기
 import matplotlib.pyplot as plt 
 import pickle as pkl
 #안뇽 나는 규빈이라고 행
-
-image_list1 = glob.glob("../pictures_png/p*.png") #이 부분 수정 가능성 있음
+'''
+image_list1 = glob.glob("../pictures_png/a*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files1 = len(image_list1)
 channels = 1
@@ -59,7 +59,7 @@ print("test_pictures", np_images2.shape)
 plt.figure(i + 1, figsize = (4, 8))
 plt.imshow(np.zeros((1,1)))
 i += 1
-
+'''
 image_list3 = glob.glob("../pictures_png/n*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files3 = len(image_list3)

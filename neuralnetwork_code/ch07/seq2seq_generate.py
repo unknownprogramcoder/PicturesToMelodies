@@ -29,9 +29,10 @@ model = PeekySeq2seq()
 model.load_params(file_name='seq2seq_parameters')
 # ================================================================
 
-sample_size=256
+sample_size=128
 scale_range_size = 50
-start_id = 32 #도.
+start_id = 31
+ #도.
 for i in range(len(x_new)):
     x = x_new[i]
     x = np.expand_dims(x, axis=0)
@@ -50,9 +51,9 @@ for i in range(len(x_new)):
     b = np.transpose(b)
     b = np.flip(b, 0)
     bb = rnp.zeros((b.shape[0],b.shape[1]))     #cupy -> numpy 바꾸기
-    for i in range(b.shape[0]):
+    for k in range(b.shape[0]):
         for j in range(b.shape[1]):
-            bb[i,j] = b[i,j]
-    plt.figure(i+1, figsize=(16,32))
+            bb[k,j] = b[k,j]
+    plt.figure(i+1, figsize=(8,8))
     plt.imshow(bb)
     

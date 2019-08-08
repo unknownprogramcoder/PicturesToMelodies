@@ -113,9 +113,9 @@ class Decoder: #rnn신경망
         lstm_Wx1 = (rn(D, 4 * H) / np.sqrt(D)).astype('f')
         lstm_Wh1 = (rn(H, 4 * H) / np.sqrt(H)).astype('f')
         lstm_b1 = np.zeros(4 * H).astype('f')
-        #lstm_Wx2 = (rn(H, 4 * H) / np.sqrt(H)).astype('f')
-        #lstm_Wh2 = (rn(H, 4 * H) / np.sqrt(H)).astype('f')
-        #lstm_b2 = np.zeros(4 * H).astype('f')
+        lstm_Wx2 = (rn(H, 4 * H) / np.sqrt(H)).astype('f')
+        lstm_Wh2 = (rn(H, 4 * H) / np.sqrt(H)).astype('f')
+        lstm_b2 = np.zeros(4 * H).astype('f')
         affine_W = (rn(H, S) / np.sqrt(H)).astype('f')
         affine_b = np.zeros(S).astype('f')
         
@@ -124,12 +124,12 @@ class Decoder: #rnn신경망
             TimeDropout(dropout_ratio),
             TimeLSTM(lstm_Wx1, lstm_Wh1, lstm_b1, stateful=True),
             TimeDropout(dropout_ratio),
-            #TimeLSTM(lstm_Wx2, lstm_Wh2, lstm_b2, stateful=True),
-            #TimeDropout(dropout_ratio),
+            TimeLSTM(lstm_Wx2, lstm_Wh2, lstm_b2, stateful=True),
+            TimeDropout(dropout_ratio),
             TimeAffine(affine_W, affine_b) 
         ]
-        self.lstm_layers = [self.layers[2]]#, self.layers[4]]
-        self.drop_layers = [self.layers[1], self.layers[3]]#, self.layers[5]]
+        self.lstm_layers = [self.layers[2], self.layers[4]]
+        self.drop_layers = [self.layers[1], self.layers[3], self.layers[5]]
         
         self.params, self.grads = [], []
         for layer in self.layers:
