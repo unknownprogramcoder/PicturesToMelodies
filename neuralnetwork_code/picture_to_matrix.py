@@ -6,6 +6,7 @@ from scipy import misc #이미지 불러오기
 import glob #특정 폴더의 파일 불러오기
 import matplotlib.pyplot as plt 
 import pickle as pkl
+#안뇽 나는 규빈이라고 행
 
 image_list1 = glob.glob("../pictures_png/p*.png") #이 부분 수정 가능성 있음
 #parameters
