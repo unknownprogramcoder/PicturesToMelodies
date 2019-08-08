@@ -2,6 +2,7 @@
 import sys
 sys.path.append('..')
 from common.np import *
+import numpy as rnp #real num py. you know what i'm saying?
 import matplotlib.pyplot as plt
 from dataset import sequence
 from common.optimizer import Adam
@@ -28,22 +29,30 @@ model = PeekySeq2seq()
 model.load_params(file_name='seq2seq_parameters')
 # ================================================================
 
-
+sample_size=256
 scale_range_size = 50
 start_id = 32 #도.
 for i in range(len(x_new)):
     x = x_new[i]
     x = np.expand_dims(x, axis=0)
-    a = model.generate(x, start_id, sample_size=256)
-    a = np.array(a)
+    c = model.generate(x, start_id, sample_size=sample_size)
+    a = np.zeros((sample_size))
+    for index in range(sample_size):
+        a[index] = c[index]    
     print(a)
     a = np.expand_dims(a, axis=0)
     b = np.zeros((a.shape[1], scale_range_size))
+    a = a.astype(int)
+    b = b.astype(int)
     for j in range(a.shape[1]):
         b[j,a[0,j]] += 1
     #b는 numpy array, 이걸 midi파일로 바꾸는 방법?
     b = np.transpose(b)
     b = np.flip(b, 0)
+    bb = rnp.zeros((b.shape[0],b.shape[1]))     #cupy -> numpy 바꾸기
+    for i in range(b.shape[0]):
+        for j in range(b.shape[1]):
+            bb[i,j] = b[i,j]
     plt.figure(i+1, figsize=(16,32))
-    plt.imshow(b)
+    plt.imshow(bb)
     

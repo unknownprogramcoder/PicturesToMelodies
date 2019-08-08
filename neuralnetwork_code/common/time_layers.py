@@ -313,7 +313,9 @@ class TimeSoftmaxWithLoss:
         mask = mask.reshape(N * T)
 
         ys = softmax(xs)
+        
         ls = np.log(ys[np.arange(N * T), ts])
+        mask = np.asarray(mask) ######## type cast for cupy error
         ls *= mask  # ignore_label에 해당하는 데이터는 손실을 0으로 설정
         loss = -np.sum(ls)
         loss /= mask.sum()

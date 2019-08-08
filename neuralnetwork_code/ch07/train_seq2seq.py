@@ -2,6 +2,7 @@
 import sys
 sys.path.append('..')
 from common.np import *
+import numpy as rnp #real num py. you know what i'm saying?
 import matplotlib.pyplot as plt
 from dataset import sequence
 from common.optimizer import Adam
@@ -20,12 +21,11 @@ with open('../pictures_for_encoder_input_test', 'rb') as f:
     x_test = pickle.load(f)
 with open('../melodies_for_decoder_input_test', 'rb') as f:
     t_test = pickle.load(f) 
-    
 t_train = t_train.astype(int)
 t_test = t_test.astype(int)
 # 하이퍼파라미터 설정
-batch_size = 2 #>??
-max_epoch1 = 1
+batch_size = 4 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
+max_epoch = 2
 max_grad = 5.0
 
 # 일반 혹은 엿보기(Peeky) 설정 =====================================
@@ -36,7 +36,7 @@ optimizer = Adam()
 trainer = Trainer(model, optimizer)
 
 loss_list = []
-for epoch in range(max_epoch1):
+for epoch in range(max_epoch):
     trainer.fit(x_train, t_train, max_epoch=1,
                 batch_size=batch_size, max_grad=max_grad)
     
@@ -54,9 +54,9 @@ for epoch in range(max_epoch1):
 
 model.save_params(file_name='seq2seq_parameters')
 # 그래프 그리기
-x = np.arange(len(loss_list))
+
+x = rnp.arange(len(loss_list))
 plt.plot(x, loss_list, marker='o')
-plt.xlabel('에폭')
-plt.ylabel('퍼플렉시티')
-plt.ylim(0, 1.0)
+plt.xlabel('epoch')
+plt.ylabel('average_loss')
 plt.show()

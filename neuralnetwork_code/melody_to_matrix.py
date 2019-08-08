@@ -275,7 +275,7 @@ if __name__ == '__main__':
     arrays1 = np.zeros((the_number_of_file1, time_len)) 
     aaa = None
     for i in range(the_number_of_file1):
-        filepath = "C:\\Users\\kebinxyz\\Desktop\\project_pts\\melodies_midi\\m{}.mid".format(i+1)
+        filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\m{}.mid".format(i+1)
         aaa = Read_midi(filepath, 8).read_file()
         bbb = dict_to_matrix(aaa)
         ccc = bbb[0:time_len, 40:90] #자르기.
@@ -296,7 +296,7 @@ if __name__ == '__main__':
     arrays2 = np.zeros((the_number_of_file2, time_len)) 
     aaa = None
     for i in range(the_number_of_file2):
-        filepath = "C:\\Users\\kebinxyz\\Desktop\\project_pts\\melodies_midi\\t{}.mid".format(i+1)
+        filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\t{}.mid".format(i+1)
         aaa = Read_midi(filepath, 8).read_file()
         bbb = dict_to_matrix(aaa)
         ccc = bbb[0:time_len, 40:90] #자르기.

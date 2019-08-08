@@ -92,7 +92,7 @@ class PeekyDecoder:
         H = h.shape[1]
         peeky_h = h.reshape(1, 1, H)
         for _ in range(sample_size):
-            x = np.array([char_id]).reshape((1, 1))
+            x = np.array(char_id).reshape((1, 1))
             hs = np.repeat(h, 1, axis=0).reshape(1, 1, H)
             out = self.layers[0].forward(x)
             out = self.layers[1].forward(out)
