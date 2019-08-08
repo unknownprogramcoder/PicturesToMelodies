@@ -29,7 +29,7 @@ model = PeekySeq2seq()
 model.load_params(file_name='seq2seq_parameters')
 # ================================================================
 
-sample_size=128
+sample_size=256
 scale_range_size = 50
 start_id = 31
  #도.
