@@ -13,15 +13,18 @@ from peeky_seq2seq import PeekySeq2seq
 from matplotlib import pyplot as plt
 
 # 데이터셋 읽기
+'''
 with open('../pictures_for_encoder_input_train', 'rb') as f:
     x_train = pickle.load(f)
 with open('../pictures_for_encoder_input_test', 'rb') as f:
     x_test = pickle.load(f)
+'''
 with open('../pictures_for_encoder_input_new', 'rb') as f:
     x_new = pickle.load(f)
-
+'''
 t_train = t_train.astype(int)
 t_test = t_test.astype(int)
+'''
 x_new = x_new.astype(int)
 # 일반 혹은 엿보기(Peeky) 설정 =====================================
 #model = Seq2seq()

@@ -30,11 +30,11 @@ for p in image_list1:
 with open('pictures_for_encoder_input_train', 'wb') as f: 
     pkl.dump(np_images1, f)
 print("train_pictures", np_images1.shape)
-
+'''
 plt.figure(i + 1, figsize = (4, 8))
 plt.imshow(np.zeros((1,1)))
 i += 1
-'''
+
 image_list2 = glob.glob("../pictures_png/t*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files2 = len(image_list2)
@@ -55,7 +55,7 @@ for t in image_list2:
 with open('pictures_for_encoder_input_test', 'wb') as f: 
     pkl.dump(np_images2, f)
 print("test_pictures", np_images2.shape)
-
+'''
 plt.figure(i + 1, figsize = (4, 8))
 plt.imshow(np.zeros((1,1)))
 i += 1
@@ -80,4 +80,3 @@ for t in image_list3:
 with open('pictures_for_encoder_input_new', 'wb') as f: 
     pkl.dump(np_images3, f)
 print("test_pictures", np_images3.shape)
-'''

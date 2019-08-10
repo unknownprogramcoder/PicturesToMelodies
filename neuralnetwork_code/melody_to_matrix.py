@@ -268,8 +268,8 @@ class Read_midi(object):
         return pianoroll
 
 if __name__ == '__main__':
-    the_number_of_file1 = 1
-    the_number_of_file2 = 1
+    the_number_of_file1 = 60
+    #the_number_of_file2 = 1
     time_len = 128
     
     arrays1 = np.zeros((the_number_of_file1, time_len)) 
@@ -289,7 +289,7 @@ if __name__ == '__main__':
     print(arrays1.shape)
     with open('melodies_for_decoder_input_train', 'wb') as f:
         pkl.dump(arrays1, f)
-    
+'''    
     plt.figure(the_number_of_file1 + 1, figsize = (4, 8))
     plt.imshow(np.zeros((1,1)))
     
@@ -310,3 +310,4 @@ if __name__ == '__main__':
     print(arrays2.shape)
     with open('melodies_for_decoder_input_test', 'wb') as f:
         pkl.dump(arrays2, f)
+'''

@@ -12,11 +12,11 @@ class Trainer:
     def __init__(self, model, optimizer):
         self.model = model
         self.optimizer = optimizer
-        self.loss_list = []
+        self.loss_list = [] #손실 저장.
         self.eval_interval = None
         self.current_epoch = 0
 
-    def fit(self, x, t, max_epoch=10, batch_size=32, max_grad=None, eval_interval=1):
+    def fit(self, x, t, max_epoch=10, batch_size=32, max_grad=None, eval_interval=5):
         data_size = len(x)
         max_iters = data_size // batch_size
         self.eval_interval = eval_interval
