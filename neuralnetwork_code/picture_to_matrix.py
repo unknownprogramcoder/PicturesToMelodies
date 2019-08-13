@@ -8,12 +8,12 @@ import matplotlib.pyplot as plt
 import pickle as pkl
 #안뇽 나는 규빈이라고 행
 
-image_list1 = glob.glob("../pictures_png/*.png") #이 부분 수정 가능성 있음
+image_list1 = glob.glob("../resized/*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files1 = len(image_list1)
 channels = 1
-width = 256
-height = 256 
+width = 320
+height = 180 
 # from png to numpy_array you know what i'm saying?
 np_images1 = np.zeros((the_number_of_files1, channels, width, height))
 i = 0
@@ -21,7 +21,7 @@ for p in image_list1:
     image = misc.imread(p) #3차원 (세로크기,가로크기,채널수)
     image_reg = image[0:height, 0:width, 0:channels]/255.0
     np_image = np.array(image_reg)
-    np_image = np.transpose(np_image, (2,0,1))
+    np_image = np.transpose(np_image, (2,1,0))
     np_image = np.expand_dims(np_image, axis=0)
     plt.figure(i+1)
     plt.imshow(np_image[0, 0, :, :])
@@ -60,7 +60,7 @@ plt.figure(i + 1, figsize = (4, 8))
 plt.imshow(np.zeros((1,1)))
 i += 1
 
-image_list3 = glob.glob("../pictures_png/n*.png") #이 부분 수정 가능성 있음
+image_list3 = glob.glob("../resized/n*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files3 = len(image_list3)
 # from png to numpy_array you know what i'm saying?
@@ -70,7 +70,7 @@ for t in image_list3:
     image = misc.imread(t) #3차원 (세로크기,가로크기,채널수)
     image_reg = image[0:height, 0:width, 0:channels]/255.0
     np_image = np.array(image_reg)
-    np_image = np.transpose(np_image, (2,0,1))
+    np_image = np.transpose(np_image, (2,1,0))
     np_image = np.expand_dims(np_image, axis=0)
     plt.figure(i+1)
     plt.imshow(np_image[0, 0, :, :])
