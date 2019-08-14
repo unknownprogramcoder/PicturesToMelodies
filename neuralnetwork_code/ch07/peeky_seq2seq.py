@@ -5,11 +5,11 @@ from common.time_layers import *
 from seq2seq import Seq2seq, Encoder
 
 scale_range_size = 50
-hidden_vector_size = 144
+hidden_vector_size = 128
 
 class PeekyDecoder:
-    def __init__(self, scale_size=50, melvec_size=144, #embed affine가중치 공유하면 성능 좋다고 하네요
-                 hidden_size=144, dropout_ratio=0.5):
+    def __init__(self, scale_size=50, melvec_size=128, #embed affine가중치 공유하면 성능 좋다고 하네요
+                 hidden_size=128, dropout_ratio=0.5):
         S, D, H = scale_size, melvec_size, hidden_size
         rn = np.random.randn
 

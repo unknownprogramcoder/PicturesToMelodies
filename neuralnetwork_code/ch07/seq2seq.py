@@ -13,7 +13,7 @@ image_channels = 1
 image_size_height = 256
 image_size_width = 256
 scale_range_size = 50
-hidden_vector_size = 144
+hidden_vector_size = 128
 class Encoder: #cnn신경망, deep_convnet들고옴.
     def __init__(self, input_dim=(image_channels, image_size_height, image_size_width),
                  conv_param_1 = {'filter_num':16, 'filter_size':3, 'pad':1, 'stride':1},
@@ -192,7 +192,7 @@ class Seq2seq(BaseModel): #BaseModel이 상위 클래스, 여기에서 매개변
         dout = self.encoder.backward(dh)
         return dout
 
-    def generate(self, xs, start_id, sample_size=256):
+    def generate(self, xs, start_id, sample_size=32):
         h = self.encoder.forward(xs)
         sampled = self.decoder.generate(h, start_id, sample_size)
         return sampled

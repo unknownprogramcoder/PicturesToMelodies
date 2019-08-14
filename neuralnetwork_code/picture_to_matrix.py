@@ -12,8 +12,8 @@ image_list1 = glob.glob("../resized/*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files1 = len(image_list1)
 channels = 1
-width = 320
-height = 180 
+width = 256
+height = 256 
 # from png to numpy_array you know what i'm saying?
 np_images1 = np.zeros((the_number_of_files1, channels, width, height))
 i = 0
@@ -79,4 +79,4 @@ for t in image_list3:
     k += 1
 with open('pictures_for_encoder_input_new', 'wb') as f: 
     pkl.dump(np_images3, f)
-print("test_pictures", np_images3.shape)
+print("new_pictures", np_images3.shape)

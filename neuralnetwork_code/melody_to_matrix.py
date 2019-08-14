@@ -270,13 +270,13 @@ class Read_midi(object):
 if __name__ == '__main__':
     the_number_of_file1 = 60
     #the_number_of_file2 = 1
-    time_len = 128
+    time_len = 32
     
     arrays1 = np.zeros((the_number_of_file1, time_len)) 
     aaa = None
     for i in range(the_number_of_file1):
-        filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\m{}.mid".format(i+1)
-        aaa = Read_midi(filepath, 4).read_file()
+        filepath = "C:\\Users\\kebinxyz\\Documents\\GitHub\\PicturesToMelodies\\melodies_midi\\{}.mid".format(i+1)
+        aaa = Read_midi(filepath, 1).read_file()
         bbb = dict_to_matrix(aaa)
         ccc = bbb[0:time_len, 40:90] #자르기.
         #원핫벡터->인덱스로 바꾸기. (그냥 단선율로만)

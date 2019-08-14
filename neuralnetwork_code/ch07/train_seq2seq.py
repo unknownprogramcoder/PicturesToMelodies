@@ -19,7 +19,7 @@ with open('../melodies_for_decoder_input_train', 'rb') as f:
     t_train = pickle.load(f)
 t_train = t_train.astype(int)
 # 하이퍼파라미터 설정
-batch_size = 1 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
+batch_size = 4 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
 max_epoch = 500
 max_grad = 5.0
 
