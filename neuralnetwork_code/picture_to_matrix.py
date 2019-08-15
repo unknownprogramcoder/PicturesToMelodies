@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import pickle as pkl
 #안뇽 나는 규빈이라고 행
 
-image_list1 = glob.glob("../resized/*.png") #이 부분 수정 가능성 있음
+image_list1 = glob.glob("../resized/*.png")
 #parameters
 the_number_of_files1 = len(image_list1)
 channels = 1
@@ -60,7 +60,7 @@ plt.figure(i + 1, figsize = (4, 8))
 plt.imshow(np.zeros((1,1)))
 i += 1
 
-image_list3 = glob.glob("../resized/n*.png") #이 부분 수정 가능성 있음
+image_list3 = glob.glob("../newpictures_png/*.png") #이 부분 수정 가능성 있음
 #parameters
 the_number_of_files3 = len(image_list3)
 # from png to numpy_array you know what i'm saying?

@@ -269,7 +269,6 @@ class Read_midi(object):
 
 if __name__ == '__main__':
     the_number_of_file1 = 60
-    #the_number_of_file2 = 1
     time_len = 32
     
     arrays1 = np.zeros((the_number_of_file1, time_len)) 
