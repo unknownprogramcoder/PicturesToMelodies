@@ -34,9 +34,10 @@ model.load_params(file_name='seq2seq_parameters')
 sample_size=32
 scale_range_size = 50
 start_id = 32
- #도.
-for i in range(len(x_new)):
-    x = x_new[i] #getit
+#도.
+name = x_new
+for i in range(len(name)):
+    x = name[i] #getit
     x = np.expand_dims(x, axis=0)
     c = model.generate(x, start_id, sample_size=sample_size)
     a = np.zeros((sample_size))

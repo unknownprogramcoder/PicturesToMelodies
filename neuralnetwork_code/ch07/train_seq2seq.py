@@ -20,12 +20,13 @@ with open('../melodies_for_decoder_input_train', 'rb') as f:
 t_train = t_train.astype(int)
 # 하이퍼파라미터 설정
 batch_size = 4 #gpu최대 처리 용량 한계로 batch_size는 4가 최대. ㅠㅠ
-max_epoch = 500
+max_epoch = 100
 max_grad = 5.0
 
 # 일반 혹은 엿보기(Peeky) 설정 =====================================
 #model = Seq2seq()
 model = PeekySeq2seq()
+model.load_params(file_name='seq2seq_parameters')
 # ================================================================
 optimizer = Adam()
 trainer = Trainer(model, optimizer)
@@ -33,6 +34,10 @@ trainer = Trainer(model, optimizer)
 for epoch in range(max_epoch):
     trainer.fit(x_train, t_train, max_epoch=1,
                 batch_size=batch_size, max_grad=max_grad)
+    if epoch % 5 == 4:
+        model.save_params(file_name='seq2seq_parameters')
+        print("parameters saved")
+        
 model.save_params(file_name='seq2seq_parameters')
 # 그래프 그리기
 

@@ -78,9 +78,9 @@ class Encoder: #cnn신경망, deep_convnet들고옴.
         self.layers.append(Pooling(pool_h=2, pool_w=2, stride=2))
         self.layers.append(Affine(W7, b7))
         self.layers.append(Relu())
-        self.layers.append(Dropout(0.5))
+        self.layers.append(Dropout(0.05))
         self.layers.append(Affine(W8, b8))
-        self.layers.append(Dropout(0.5))
+        self.layers.append(Dropout(0.05))
 
         self.params, self.grads = [], []
         for layer in self.layers:
